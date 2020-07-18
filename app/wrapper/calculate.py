@@ -189,6 +189,7 @@ class Calculate:
         self.__update_cp(val['CP'], val['HP'], val['LP'])
         self.curValues = val.copy()  
         return self.fetch_values()  
+        
     
     def freeze_value(self, val):
         temp = {'CP' : self.df.at[2,'CP'], 'HP' : self.df.at[2,'HP'],'LP' : self.df.at[2,'LP']}

@@ -10,8 +10,8 @@ from flask import Flask, jsonify
 from flask_cors import CORS
 import wrapper as mods
 from flask_socketio import SocketIO
-from fetch import fetch
-from index import listing
+from routes.symbols import symbols
+from routes.index import index_route
 
 async_task_1 = None
 
@@ -24,8 +24,8 @@ app.config['SECRET_KEY'] = 'secret!'
 
 CORS(app, resources={r"/*": {"origins": "*"}})
 
-app.register_blueprint(fetch)
-app.register_blueprint(listing)
+app.register_blueprint(symbols)
+app.register_blueprint(index_route)
 
 socketio = SocketIO(app, cors_allowed_origins="*")
   
